@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th><%= sortable('customers.last_name', 'Customer Name') %></th>
+    <th><%= sortable('customers.email', 'Email') %></th>
+    <th><%= sortable('category') %></th>
+    <th><%= sortable('name', 'Vehicle Name') %></th>
+    <th><%= sortable('length') %></th>
+  </tr>
+  <tbody>
+    <% @vehicles.each do |vehicle| %>
+      <tr>
+        <td><%= vehicle.customer.name %></td>
+        <td><%= vehicle.customer.email %></td>
+        <td><%= vehicle.category %></td>
+        <td><%= vehicle.name %></td>
+        <td style="text-align: right"><%= vehicle.length %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

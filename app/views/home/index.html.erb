@@ -1,0 +1,29 @@
+<p style="padding: 0 10px;">
+  Outdoor.sy is a simple app that allows you to upload and compare vehicle data.
+</p>
+
+<ul>
+  <li>
+    Uploaded files may be CSV or pipe delimited.
+  </li>
+  <li>
+    Fields are expected to be in order: first_name, last_name, email, category, vehicle_name, length
+  </li>
+  <li>
+    Click on a column heading to sort by that column.
+  </li>
+</ul>
+
+<% unless @vehicles.present? %>
+  <p>No vehicles uploaded yet.</p>
+<% else %>
+  <%= render "data_table" %>
+<% end %>
+
+<div style="display: inline-block; width: 50%;">
+  <%= render "import_form" %>
+</div>
+
+<div style="display: inline-block; width: 49%; text-align: right">
+  <%= button_to "Delete All", home_delete_all_path, method: :delete, class: "danger", form: { data: { turbo_confirm: 'Are you sure?' }} %>
+</div>
